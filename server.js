@@ -311,7 +311,7 @@ async function updateInventory(inventoryItemId, locationId, qty) {
   const currentQty = await getCurrentQuantity(inventoryItemId, locationId);
 
   const mutation = `
-    mutation {
+    mutation @idempotent {
       inventorySetQuantities(input: {
         name: "available",
         reason: "correction",
