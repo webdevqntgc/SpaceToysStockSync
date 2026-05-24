@@ -283,11 +283,11 @@ async function updateInventory(inventoryItemId, locationId, qty) {
       inventorySetQuantities(input: {
         name: "available",
         reason: "correction",
-        ignoreCompareQuantity: true,
         quantities: [{
           inventoryItemId: "${inventoryItemId}",
           locationId: "${locationId}",
-          quantity: ${qty}
+          quantity: ${qty},
+          compareQuantity: null
         }]
       }) {
         userErrors { message }
