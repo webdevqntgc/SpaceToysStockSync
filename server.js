@@ -273,10 +273,42 @@ async function updatePrice(productId, variantId, price, barcode) {
 
 
 // ==========================================
+// GET CURRENT INVENTORY QUANTITY
+// ==========================================
+
+async function getCurrentQuantity(inventoryItemId, locationId) {
+
+  const query = `
+    query {
+      inventoryItem(id: "${inventoryItemId}") {
+        inventoryLevels(first: 1, query: "location_id:${locationId}") {
+          edges {
+            node {
+              quantities(names: ["available"]) {
+                quantity
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const data = await shopifyGraphQL(query);
+
+  const level = data?.inventoryItem?.inventoryLevels?.edges[0]?.node;
+
+  return level?.quantities[0]?.quantity ?? 0;
+}
+
+
+// ==========================================
 // UPDATE INVENTORY
 // ==========================================
 
 async function updateInventory(inventoryItemId, locationId, qty) {
+
+  const currentQty = await getCurrentQuantity(inventoryItemId, locationId);
 
   const mutation = `
     mutation {
@@ -286,7 +318,8 @@ async function updateInventory(inventoryItemId, locationId, qty) {
         quantities: [{
           inventoryItemId: "${inventoryItemId}",
           locationId: "${locationId}",
-          quantity: ${qty}
+          quantity: ${qty},
+          changeFromQuantity: ${currentQty}
         }]
       }) {
         userErrors { message }
