@@ -310,8 +310,10 @@ async function updateInventory(inventoryItemId, locationId, qty) {
 
   const currentQty = await getCurrentQuantity(inventoryItemId, locationId);
 
+  const key = `${inventoryItemId}-${locationId}-${Date.now()}`;
+
   const mutation = `
-    mutation @idempotent {
+    mutation {
       inventorySetQuantities(input: {
         name: "available",
         reason: "correction",
@@ -321,7 +323,7 @@ async function updateInventory(inventoryItemId, locationId, qty) {
           quantity: ${qty},
           changeFromQuantity: ${currentQty}
         }]
-      }) {
+      }) @idempotent(key: "${key}") {
         userErrors { message }
       }
     }
