@@ -286,8 +286,7 @@ async function updateInventory(inventoryItemId, locationId, qty) {
         quantities: [{
           inventoryItemId: "${inventoryItemId}",
           locationId: "${locationId}",
-          quantity: ${qty},
-          compareQuantity: null
+          quantity: ${qty}
         }]
       }) {
         userErrors { message }
