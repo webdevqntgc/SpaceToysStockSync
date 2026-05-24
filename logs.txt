@@ -1,0 +1,22 @@
+[2026-05-11T13:49:47.277Z] Server started on port 3000
+[2026-05-11T13:49:47.279Z] Fetching JSON from source...
+[2026-05-11T13:49:48.365Z] Processing 7300 items
+[2026-05-11T13:49:48.971Z] SYNC ERROR => Request failed with status code 401
+[2026-05-11T13:52:20.962Z] Server started on port 3000
+[2026-05-11T13:52:20.963Z] Fetching JSON from source...
+[2026-05-11T13:52:22.632Z] Processing 7300 items
+[2026-05-11T13:52:23.236Z] SYNC ERROR => Request failed with status code 401
+[2026-05-11T13:52:32.613Z] Fetching JSON from source...
+[2026-05-11T13:52:33.441Z] Processing 7300 items
+[2026-05-11T13:52:34.012Z] SYNC ERROR => Request failed with status code 401
+[2026-05-11T13:53:41.586Z] Fetching JSON from source...
+[2026-05-11T13:53:42.507Z] Processing 7300 items
+[2026-05-11T13:53:43.083Z] SYNC ERROR => Request failed with status code 401
+[2026-05-11T14:00:00.017Z] AUTO SYNC STARTED
+[2026-05-11T14:00:00.018Z] Fetching JSON from source...
+[2026-05-11T14:00:01.038Z] Processing 7300 items
+[2026-05-11T14:00:01.602Z] SYNC ERROR => Request failed with status code 401
+[2026-05-11T14:01:40.749Z] Server started on port 3000
+[2026-05-11T14:01:40.750Z] Fetching JSON from source...
+[2026-05-11T14:01:41.690Z] Processing 7300 items
+[2026-05-11T14:01:42.277Z] SYNC ERROR => Request failed with status code 401
